@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sentiment Analysis: Example 1" href="sentiment_analysis.html" />
-    <link rel="prev" title="Data: Source and Nature" href="data_sources.html" />
+    <link rel="next" title="Sentiment Analysis: Example 1" href="analysis_example_1.html" />
+    <link rel="prev" title="Data: Sources and Nature" href="data_sources.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -160,9 +160,9 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="definition.html">What is Sentiment Analysis?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data: Source and Nature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data: Sources and Nature</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Application Programing Interface (APIs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sentiment_analysis.html">Sentiment Analysis: Example 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis_example_1.html">Sentiment Analysis: Example 1</a></li>
 </ul>
 
     </div>
@@ -217,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/gabegaz/sentiment" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -234,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/using_apis.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/gabegaz/sentiment/issues/new?title=Issue%20on%20page%20%2Fcontent/using_apis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -356,8 +356,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-wiht-secret-keys">Authentication wiht Secret Keys</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-with-a-python-environment">Implementation with a Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-extracting-data-from-twitter-using-apis">Example: Extracting Data from Twitter Using APIs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-guidelines">General Guidelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-wiht-secret-keys">Authentication wiht Secret Keys</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-with-a-python-environment">Implementation with a Python Environment</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -371,6 +375,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="application-programing-interface-apis">
 <h1>Application Programing Interface (APIs)<a class="headerlink" href="#application-programing-interface-apis" title="Permalink to this heading">#</a></h1>
+<section id="example-extracting-data-from-twitter-using-apis">
+<h2>Example: Extracting Data from Twitter Using APIs<a class="headerlink" href="#example-extracting-data-from-twitter-using-apis" title="Permalink to this heading">#</a></h2>
+<section id="general-guidelines">
+<h3>General Guidelines<a class="headerlink" href="#general-guidelines" title="Permalink to this heading">#</a></h3>
 <p>Here are some general steps for extracting data from Twitter using APIs:</p>
 <ol class="arabic simple">
 <li><p>Register a free Twitter developer account on the official developer portal: <a class="reference external" href="https://developer.twitter.com/">https://developer.twitter.com/</a>. Follow the instructions provided on the site to complete registration.</p></li>
@@ -378,24 +386,28 @@ document.write(`
 <li><p>Obtain API Keys and Access Token: You will need to generate API keys and access tokens for your application. The API keys will be required when calling the API, while the access token will grant permission for your application to access protected resources, such as private tweets.</p></li>
 <li><p>Determine which type of data you want to extract: Before you begin extracting data, consider what kind of data you want to extract. Are you looking for all tweets related to a particular keyword? Do you want to filter tweets based on location, author, language, or any other parameter available through the Twitter API? Knowing what you want ahead of time will save you time and effort later on.</p></li>
 <li><p>Set up the query URL: Using the Twitter search API, you can build URLs to retrieve tweets matching specific criteria. Your query string should contain parameters like q (keyword), lang (language), since (date range), until (end date), etc. Depending on the complexity of your query, you may need to test various combinations of parameters to get desired results.</p></li>
-<li><p>Retrieve Data: Send HTTP GET requests to Twitter API endpoints and pass along your customized query strings. Use Python, Java, R, Ruby or whichever programming language you prefer, but ensure that your chosen library has Twitter API integration support. Collect the returned JSON data and parse it to store the results in your database or do further processing.</p></li>
+<li><p>Retrieve Data: Send HTTP GET requests to Twitter API endpoints and pass along your customized query strings. You can use Python, Java, R, Ruby or whichever programming language you prefer, but ensure that your chosen library has Twitter API integration support. We will use Python in the examples of this project.</p></li>
+<li><p>Collect the returned JSON data and parse it to store the results in your database or do further processing.</p></li>
 <li><p>Handle Errors: Like most modern APIs, Twitter search API returns error messages if something goes wrong. You’ll want to handle those gracefully in your code so that you know what went wrong and why. This way you can iterate and fix problems more easily.</p></li>
 </ol>
+</section>
 <section id="authentication-wiht-secret-keys">
-<h2>Authentication wiht Secret Keys<a class="headerlink" href="#authentication-wiht-secret-keys" title="Permalink to this heading">#</a></h2>
-<p>Protecting sensitive information, such as secret keys, is crucial for maintaining the security of your project. One way to achieve this is by storing them in an encrypted file instead of hardcoding them into your source code. To add another layer of protection, you can then use version control software like Git to keep track of changes to your files, including your key files. However, because these key files contain sensitive information, they should never be stored directly under version control. That’s where the “gitignore” feature comes in handy.</p>
-<p>Gitignore allows you to specify which files or directories should be ignored by Git when committing changes to your repository. For example, you could create a .gitignore rule to exclude certain subdirectories containing secrets or configuration settings from being committed to your VCS provider. While gitignore rules are effective at preventing accidental commitments, they don’t necessarily protect against someone physically accessing the file system.</p>
-<p>To truly secure your sensitive information, you should encrypt the contents of each file before adding it to version control. The python-dotenv package makes it easy to automate this process. Here are the basic steps for setting up a dotenv file with secret_key values:</p>
+<h3>Authentication wiht Secret Keys<a class="headerlink" href="#authentication-wiht-secret-keys" title="Permalink to this heading">#</a></h3>
+<p>Protecting sensitive information, such as secret keys, is crucial for maintaining the security of your project. One way to achieve this is by storing them in an encrypted file instead of hardcoding them into your source code. To add another layer of protection, you can then use version control software like Git to keep track of changes to your files, including your key files. However, because these key files contain sensitive information, they should never be stored directly under version control. That’s where the <code class="docutils literal notranslate"><span class="pre">gitignore</span></code> feature comes in handy.</p>
+<p><a class="reference external" href="https://git-scm.com/docs/gitignore">Gitignore</a> allows you to specify which files or directories should be ignored by Git when committing changes to your repository. For example, you could create a <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> rule to exclude certain subdirectories containing secrets or configuration settings from being committed to your version control system (VCS) provider. While gitignore rules are effective at preventing accidental commitments, they don’t necessarily protect against someone physically accessing the file system.</p>
+<p>To truly secure your sensitive information, you should encrypt the contents of each file before adding it to version control. But for this simple project you can you the services of <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> without encryption. The python-dotenv package makes it easy to automate this process.</p>
+<p>Here are the basic steps for setting up a dotenv file with secret_key values:</p>
 <ol class="arabic simple">
-<li><p>Install the python-dotenv package and initialize your project directory with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-dotenv</span></code>.</p></li>
+<li><p>Install the python-dotenv package and initialize your project directory with
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">python-dotenv</span></code></p></li>
 <li><p>In the root folder of your project, create a new <code class="docutils literal notranslate"><span class="pre">.env</span></code> file (<code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">.env</span></code> from terminal) and add the lines <code class="docutils literal notranslate"><span class="pre">SECRET_KEY=your_secret_key_here</span></code> followed by a newline character. Repeat this step for any other environment variables that require encryption.</p></li>
 <li><p>Make sure to set appropriate permissions on both the <code class="docutils literal notranslate"><span class="pre">.env</span></code>. These files should only be readable by the owner of the project directory.</p></li>
 </ol>
 <p>By following these steps, you can effectively safeguard your sensitive information without sacrificing ease-of-use or collaboration opportunities.</p>
 </section>
 <section id="implementation-with-a-python-environment">
-<h2>Implementation with a Python Environment<a class="headerlink" href="#implementation-with-a-python-environment" title="Permalink to this heading">#</a></h2>
-<p>Lets install and python-dotenv:</p>
+<h3>Implementation with a Python Environment<a class="headerlink" href="#implementation-with-a-python-environment" title="Permalink to this heading">#</a></h3>
+<p>Lets install and python-dotenv (remove the # symbol in your system):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#pip install python-dotenv</span>
@@ -430,6 +442,7 @@ document.write(`
 </div>
 </div>
 <p>Now, <code class="docutils literal notranslate"><span class="pre">api_keys</span></code>, <code class="docutils literal notranslate"><span class="pre">api_keys_sec</span></code>, <code class="docutils literal notranslate"><span class="pre">access_token</span></code>, <code class="docutils literal notranslate"><span class="pre">access_token_sec</span></code> hold the secret keys that we need for our work in the newx section.</p>
+</section>
 </section>
 </section>
 
@@ -470,11 +483,11 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Data: Source and Nature</p>
+        <p class="prev-next-title">Data: Sources and Nature</p>
       </div>
     </a>
     <a class="right-next"
-       href="sentiment_analysis.html"
+       href="analysis_example_1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -500,8 +513,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-wiht-secret-keys">Authentication wiht Secret Keys</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-with-a-python-environment">Implementation with a Python Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-extracting-data-from-twitter-using-apis">Example: Extracting Data from Twitter Using APIs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-guidelines">General Guidelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#authentication-wiht-secret-keys">Authentication wiht Secret Keys</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-with-a-python-environment">Implementation with a Python Environment</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

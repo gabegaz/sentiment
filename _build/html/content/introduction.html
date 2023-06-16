@@ -160,9 +160,9 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="definition.html">What is Sentiment Analysis?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data: Source and Nature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_sources.html">Data: Sources and Nature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_apis.html">Application Programing Interface (APIs)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sentiment_analysis.html">Sentiment Analysis: Example 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis_example_1.html">Sentiment Analysis: Example 1</a></li>
 </ul>
 
     </div>
@@ -217,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/gabegaz/sentiment" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -234,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcontent/introduction.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/gabegaz/sentiment/issues/new?title=Issue%20on%20page%20%2Fcontent/introduction.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -360,7 +360,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
-<p>Sentiment analysis is the process of using natural language processing, machine learning and other artificial intelligence techniques to identify and extract subjective information from text or speech data sources, such as reviews, social media posts, surveys, customer feedback, emails, and call center transcripts. The goal of sentiment analysis is to determine the attitude or emotion behind the words used in order to understand how people feel about a particular topic or product. It has various applications including market research, brand monitoring, customer service management, risk assessment and fraud detection among others. This article will explore the latest advancements and challenges in sentiment analysis, its use cases, and future prospects. It then uses data from tweeter to make a simple sentiment analysis. I use an opensource large language model trained on tweeter datasets to extract sentiments from tweeter posts. An analysis is made based on the result of the model.</p>
+<p>Sentiment analysis (also known as opinion mining or emotion AI) is the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study affective states and subjective information. Sentiment analysis is widely applied to voice of the customer materials such as reviews and survey responses, online and social media, and healthcare materials for applications that range from marketing to customer service to clinical medicine
+(<a class="reference external" href="https://en.wikipedia.org/wiki/Sentiment_analysis">Wikipedia</a>).</p>
+<p>It is the process of using natural language processing, machine learning and other artificial intelligence techniques to identify and extract subjective information from text or speech data sources, such as reviews, social media posts, surveys, customer feedback, emails, and call center transcripts. The goal of sentiment analysis is to determine the attitude or emotion behind the words used in order to understand how people feel about a particular topic or product. It has various applications including market research, brand monitoring, customer service management, risk assessment and fraud detection among others.</p>
+<p>In this small project I will explore the latest advancements and challenges in sentiment analysis and its use cases. It then uses data from different sources to make simple sentiment analysis tasks using a series of examples. I use an opensource large language model <a class="reference external" href="https://huggingface.co/bert-base-uncased">BERT</a> described in this <a class="reference external" href="https://arxiv.org/abs/1810.04805">paper</a> and its extensions and customized versions.</p>
 </section>
 
     <script type="text/x-thebe-config">
