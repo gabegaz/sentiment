@@ -1,0 +1,11 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: about
+chapters:
+- file: content/introduction
+- file: content/definition
+- file: content/data_sources
+- file: content/using_apis
+- file: content/sentiment_analysis
